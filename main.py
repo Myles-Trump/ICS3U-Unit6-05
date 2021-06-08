@@ -11,6 +11,7 @@ def main():
     grades = []
     marks_int = 0
     total = 0
+    loop_counter = 0
 
     # input
     print("Please enter your grades (%). Enter -1 to end.")
@@ -21,8 +22,10 @@ def main():
         try:
             marks_int = int(marks)
             if marks_int > -1 and marks_int < 101:
-                grades.append(marks_int)
+                grades.append(marks)
                 total = total + marks_int
+
+                loop_counter = loop_counter + 1
 
             elif marks_int < -1 or marks_int > 100:
                 print("\nYou have entered an invalid integer, try again")
@@ -37,9 +40,9 @@ def main():
             pass
 
     grades.pop()
-    average = total / len(grades)
+    average = total / loop_counter
 
-    print("\nYour average grade is {0}.".format(average))
+    print("\nYour average grade is {0}%.".format(average))
 
 
 if __name__ == "__main__":
